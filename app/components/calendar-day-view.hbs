@@ -1,0 +1,28 @@
+
+<div class="h4">
+  {{t "dashboard.numberOfEvents" num= @timeslots.length}}
+</div>
+
+<ul class="list-group">
+
+  {{#each (range 0 24) as |hour|}}
+
+    <button type="button" class="list-group-item list-group-item-action" aria-current="true">
+      {{concat hour ":00"}}
+    </button>
+    
+  {{/each}}
+
+  <h3>
+    timeslots
+  </h3>
+
+  {{#each @timeslots as |timeslot|}}
+    
+    <button type="button" class="list-group-item list-group-item-action" {{on "click" (fn @onTimeslotSelected timeslot)}}>
+      {{timeslot.activityName}}
+    </button>
+  
+  {{/each}}
+
+</ul>

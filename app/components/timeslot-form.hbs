@@ -1,0 +1,60 @@
+<form>
+
+  <h3>
+    {{@model.activityName}}
+  </h3>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.name" }}
+    </label>
+    {{@model.activityName}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.date" }}
+    </label>
+    {{@model.date}}
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.startTime" }}
+    </label>
+    {{@model.startTime}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.endTime" }}
+    </label>
+    {{@model.endTime}}
+  </div>
+
+  
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.availableSpots" }}
+    </label>
+    {{@model.availableSpots}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.bookedCount" }}
+    </label>
+    {{@model.bookedCount}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.maxGuests" }}
+    </label>
+    {{@model.maxGuests}}
+  </div>
+
+</form>
