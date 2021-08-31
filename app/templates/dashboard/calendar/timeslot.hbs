@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn" {{on "click" this.onBack}}>
+      {{t "dashboard.done"}}
+    </button>
+  </div>
+</div>
+
+
+
+<form>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.date" }}
+    </label>
+    {{@model.timeslot.date}}
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.startTime" }}
+    </label>
+    {{@model.timeslot.startTime}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.endTime" }}
+    </label>
+    {{@model.timeslot.endTime}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.name" }}
+    </label>
+    {{@model.timeslot.activityName}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.availableSpots" }}
+    </label>
+    {{@model.timeslot.availableSpots}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.bookedCount" }}
+    </label>
+    {{@model.timeslot.bookedCount}}
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      {{t "dashboard.timeslot.maxGuests" }}
+    </label>
+    {{@model.timeslot.maxGuests}}
+  </div>
+
+</form>

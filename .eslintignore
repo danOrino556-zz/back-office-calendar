@@ -13,6 +13,12 @@
 # misc
 /coverage/
 !.*
+.ember-cli.js
+.eslintrc.js
+/config/
+ember-cli-build.js
+.template-lintrc.js
+testem.js
 .eslintcache
 
 # ember-try

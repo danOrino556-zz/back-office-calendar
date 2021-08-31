@@ -1,0 +1,31 @@
+<h3>
+  {{t "dashboard.availableDates"}}
+</h3>
+
+<div class="row">
+  <div class="col">
+    {{#each @model.allCalendarDates  as |date|}}
+      <button type="button" class="btn {{if (eq date @model.selectedDate) "btn-light" "btn-primary"}}" {{on "click" (fn this.onDateSelected date)}}>
+        {{date}}
+      </button>
+    {{/each}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <ul class="list-group">
+
+      {{#each (filter-by "date" @model.selectedDate @model.timeslots) as |timeslot|}}
+        
+        <button type="button" class="list-group-item list-group-item-action" aria-current="true" {{on "click" (fn this.onTimeslotSelected timeslot)}}>
+          {{timeslot.activityName}}
+        </button>
+      
+      {{/each}}
+
+    </ul>
+  </div>
+</div>
+
+{{outlet}}
