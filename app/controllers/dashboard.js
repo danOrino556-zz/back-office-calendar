@@ -4,18 +4,10 @@ import { inject as service } from '@ember/service';
 
 
 export default class Dashboard extends Controller {
-
-
-  @service('identity') identitySvc;
   
 
   @action
-  onLogout(username, password){
+  onLocaleChange(locale){
 
-    this.identitySvc.logout().then(
-      ()=>{
-        this.transitionToRoute("login")
-      }
-    )
   }
 }

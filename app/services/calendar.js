@@ -11,12 +11,8 @@ export default class Calendar extends Service{
 
   getAllTimeSlots(){
 
-
     return this.requestSvc.fetch("calendarEndpoint").then(
       ()=>{    
-
-        console.log(CalendarData)
-
         this.parseAllTimeSlots(CalendarData);
       }
     );
@@ -28,8 +24,6 @@ export default class Calendar extends Service{
     calendarData.forEach((singleDayTimeslots=[], dayIndex)=>{
 
       singleDayTimeslots.forEach((timeslot, timeslotIndex)=>{
-
-        
 
         this.store.createRecord("timeslot", {
           id : dayIndex + "-" + timeslotIndex,

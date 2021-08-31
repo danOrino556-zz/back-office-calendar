@@ -1,0 +1,55 @@
+
+<div class="calendar-day-container">
+
+  <div class="h4">
+    {{t "dashboard.numberOfEvents" num= @timeslots.length}}
+  </div>
+
+  {{#each (range 0 24) as |hour|}}
+
+    <div class="row">
+
+      <div class="col-auto text-center">
+        <div class="calendar-time-title">
+          {{concat hour ":00"}}
+        </div>
+      </div>
+      
+      <div class="col">
+
+        <div class="hour-block">
+
+          <hr>
+
+          {{#each (array "00" "30") as |thirtyMinuteIncrement|}}
+
+            <div class="thirty-minute-block">
+
+              {{#with
+                (filter-by "startTime" (concat hour ":" thirtyMinuteIncrement) @timeslots)
+              as |matchingTimeSlots|
+              }}
+
+                {{#each matchingTimeSlots as |timeslot|}}
+
+                  <CalendarTimeSlot
+                    @model={{timeslot}}
+                    @onClick={{fn @onTimeslotSelected timeslot}}
+                  />
+                  
+                {{/each}}
+
+              {{/with}}
+
+            </div>
+            
+          {{/each}}
+        </div>
+
+        
+      </div>
+    </div>
+    
+  {{/each}}
+</div>
+

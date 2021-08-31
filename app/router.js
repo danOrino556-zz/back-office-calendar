@@ -15,6 +15,4 @@ Router.map(function () {
       this.route('timeslot', {path: '/:timeslot_id'});
     });
   });
-  
-  this.route('login');
 });

@@ -1,0 +1,53 @@
+
+.content-container{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1152px;
+
+  @media screen and (max-width: 1151px) {
+    margin : 4rem;
+  }
+}
+
+.calendar-day-container{
+
+  .calendar-time-title{
+    width : 50px;
+  }
+
+
+  $timeslot-height: 15px;
+
+  .hour-block{
+
+    hr{
+      margin: 0;
+      width : 100%;
+      position : absolute;
+    }
+  }
+
+  .thirty-minute-block{
+    height : $timeslot-height;
+  }
+
+  .timeslot-event-container{
+    position: absolute;
+    background-color: $grey-color;
+    border : 1px solid $border-color;
+    padding : 0;
+    z-index : 50;
+    width : 20%;
+    margin-bottom : -1px;
+
+    .activity-title{
+      position: absolute;
+      margin-left: 5px;
+      font-size : 14px;
+    }
+  }
+
+  .timeslot-event-container:hover{
+    background-color: $primary-color;
+  }
+}

@@ -1,0 +1,17 @@
+<h3>
+  {{t "dashboard.availableDates"}}
+</h3>
+
+<CalendarDatePicker
+  @selectedDate={{@model.selectedDate}}
+  @allDates={{@model.allCalendarDates}}
+  @onDateSelected={{this.onDateSelected}}
+/>
+
+<hr>
+
+<CalendarDayView
+  @date={{@model.selectedDate}}
+  @timeslots={{filter-by "date" @model.selectedDate @model.timeslots}}
+  @onTimeslotSelected={{this.onTimeslotSelected}}
+/>

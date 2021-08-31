@@ -6,6 +6,7 @@
   "dashboard.done" : "Done",
   "dashboard.logout" : "Logout",
   "dashboard.availableDates" : "Available Dates",
+  "dashboard.numberOfEvents" : "{num} Events",
   "dashboard.timeslot.date" : "Date",
   "dashboard.timeslot.startTime" : "Start Time",
   "dashboard.timeslot.endTime" : "End Time",

@@ -21,7 +21,7 @@ export default class Application extends Route {
     const targetName = transition.targetName;
 
     if(targetName === 'index'){
-      this.replaceWith('login');
+      this.replaceWith('dashboard');
     }
   }
 
