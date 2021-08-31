@@ -1,0 +1,12 @@
+<button type="button" class="timeslot-event-container" {{on "click" @onClick}}>
+
+  <div class="activity-title">
+    {{@model.activityName}}
+  </div>
+  
+
+  {{#each (range 0 this.numberOfThirtyBlocks) as |thirtyMinuteBlock|}}
+    <div class="thirty-minute-block"> </div>
+  {{/each}}
+  
+</button>

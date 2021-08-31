@@ -7,8 +7,6 @@ export default class Timeslot extends Route{
 
   model(params){
 
-    console.log(params)
-
     const timeslotId = params.timeslot_id;
     const allTimeslotModels = this.store.peekAll("timeslot");
 

@@ -2,20 +2,11 @@
   {{t "dashboard.availableDates"}}
 </h3>
 
-<div>
-  <button type="button" class="btn btn-light {{if (eq @model.selectedDate @model.allCalendarDates.firstObject) "disabled"}}" {{on "click" this.onPreviousDate}}>
-    Previous
-  </button>
-  <button type="button" class="btn btn-light {{if (eq @model.selectedDate @model.allCalendarDates.lastObject) "disabled"}}" {{on "click" this.onNextDate}}>
-    Next
-  </button>
-
-  {{#each @model.allCalendarDates  as |date|}}
-    <button type="button" class="btn {{if (eq date @model.selectedDate) "btn-secondary" "btn-light"}}" {{on "click" (fn this.onDateSelected date)}}>
-      {{date}}
-    </button>
-  {{/each}}
-</div>
+<CalendarDatePicker
+  @selectedDate={{@model.selectedDate}}
+  @allDates={{@model.allCalendarDates}}
+  @onDateSelected={{this.onDateSelected}}
+/>
 
 <hr>
 

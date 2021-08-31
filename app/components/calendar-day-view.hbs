@@ -1,28 +1,55 @@
 
-<div class="h4">
-  {{t "dashboard.numberOfEvents" num= @timeslots.length}}
-</div>
+<div class="calendar-day-container">
 
-<ul class="list-group">
+  <div class="h4">
+    {{t "dashboard.numberOfEvents" num= @timeslots.length}}
+  </div>
 
   {{#each (range 0 24) as |hour|}}
 
-    <button type="button" class="list-group-item list-group-item-action" aria-current="true">
-      {{concat hour ":00"}}
-    </button>
+    <div class="row">
+
+      <div class="col-auto text-center">
+        <div class="calendar-time-title">
+          {{concat hour ":00"}}
+        </div>
+      </div>
+      
+      <div class="col">
+
+        <div class="hour-block">
+
+          <hr>
+
+          {{#each (array "00" "30") as |thirtyMinuteIncrement|}}
+
+            <div class="thirty-minute-block">
+
+              {{#with
+                (filter-by "startTime" (concat hour ":" thirtyMinuteIncrement) @timeslots)
+              as |matchingTimeSlots|
+              }}
+
+                {{#each matchingTimeSlots as |timeslot|}}
+
+                  <CalendarTimeSlot
+                    @model={{timeslot}}
+                    @onClick={{fn @onTimeslotSelected timeslot}}
+                  />
+                  
+                {{/each}}
+
+              {{/with}}
+
+            </div>
+            
+          {{/each}}
+        </div>
+
+        
+      </div>
+    </div>
     
   {{/each}}
+</div>
 
-  <h3>
-    timeslots
-  </h3>
-
-  {{#each @timeslots as |timeslot|}}
-    
-    <button type="button" class="list-group-item list-group-item-action" {{on "click" (fn @onTimeslotSelected timeslot)}}>
-      {{timeslot.activityName}}
-    </button>
-  
-  {{/each}}
-
-</ul>
