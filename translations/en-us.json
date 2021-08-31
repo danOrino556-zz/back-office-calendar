@@ -1,0 +1,16 @@
+{
+  "login" : "Login",
+  "login.username" : "Username",
+  "login.password" : "Password",
+  "dashboard.calendar" : "Calendar",
+  "dashboard.done" : "Done",
+  "dashboard.logout" : "Logout",
+  "dashboard.availableDates" : "Available Dates",
+  "dashboard.timeslot.date" : "Date",
+  "dashboard.timeslot.startTime" : "Start Time",
+  "dashboard.timeslot.endTime" : "End Time",
+  "dashboard.timeslot.name" : "Name",
+  "dashboard.timeslot.availableSpots" : "Available Spots",
+  "dashboard.timeslot.bookedCount" : "Booked Count",
+  "dashboard.timeslot.maxGuests" : "Max Guests"
+}
