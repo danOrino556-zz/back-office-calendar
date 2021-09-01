@@ -4,27 +4,38 @@ import { htmlSafe } from '@ember/template';
 
 export default class CalendarTimeSlot extends Component {
 
+
+  get startDate(){
+
+    const {date, startTime } = this.args.model
+    return this.getDateReference(date, startTime);
+  }
+
+
+  get endDate(){
+
+    const {date, endTime } = this.args.model
+    return this.getDateReference(date, endTime);
+  }
+
   
   get numberOfThirtyBlocks(){
 
-    const {date, startTime, endTime } = this.args.model
-    const startDate = this.getDateReference(date, startTime);
-    const endDate = this.getDateReference(date, endTime);
-    const hourDifference = endDate.getHours() - startDate.getHours();
-    const minuteDifference = endDate.getMinutes() - startDate.getMinutes();
-
+    const hourDifference = this.endDate.getHours() - this.startDate.getHours();
+    const minuteDifference = this.endDate.getMinutes() - this.startDate.getMinutes();
     return Math.abs((hourDifference  * 60) + minuteDifference) / 30;
   }
 
 
   get timeslotAndConflicts(){
 
-    const timeslots = this.args.timeslots;
+    return this.args.timeslots.filter((timeslot)=>{
 
-    return timeslots.filter((timeslot)=>{
-
-      const occursDuringOrBeforeStart = timeslot.startTime <= this.args.model.endTime;
-      const occursDuringOrBeforeEnd = timeslot.endTime >= this.args.model.startTime;
+      const {date, startTime, endTime } = timeslot;
+      const timeslotStartDate =  this.getDateReference(date, startTime);
+      const timeslotEndDate =  this.getDateReference(date, endTime);
+      const occursDuringOrBeforeStart = timeslotStartDate.getTime() < this.endDate.getTime();
+      const occursDuringOrBeforeEnd = timeslotEndDate.getTime() > this.startDate.getTime();
       return occursDuringOrBeforeStart && occursDuringOrBeforeEnd;
     });
   }
@@ -45,6 +56,6 @@ export default class CalendarTimeSlot extends Component {
     const width = 100 / (timeslotConflicts.length );
     const timeslotIndex = timeslotConflicts.indexOf(timeslot);
     const leftOffset = width * timeslotIndex;
-    return htmlSafe("width : " + width + "% !important; left : " + leftOffset  + "%");
+    return htmlSafe("width : " + width + "%; left : " + leftOffset  + "%");
   }
 }

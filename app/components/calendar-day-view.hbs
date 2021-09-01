@@ -5,7 +5,7 @@
     {{t "dashboard.numberOfEvents" num= @timeslots.length}}
   </div>
 
-  {{#each (range 0 24) as |hour|}}
+  {{#each (range 0 23 true) as |hour|}}
 
     <div class="row hour-container">
 

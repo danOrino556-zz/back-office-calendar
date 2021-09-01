@@ -6,7 +6,7 @@
 
   <div class="col">
 
-    <button type="button" class="btn btn-primary {{if (eq @selectedDate @allDates.firstObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.firstObject)}}>
+    <button type="button" class="btn btn-primary {{if this.previousDate "" "disabled"}}" {{on "click" (fn @onDateSelected this.previousDate)}}>
       <i class="bi-chevron-left"></i>
     </button>
 
@@ -14,7 +14,7 @@
       {{@selectedDate}}
     </button>
 
-    <button type="button" class="btn btn-primary {{if (eq @selectedDate @allDates.lastObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.lastObject)}}>
+    <button type="button" class="btn btn-primary {{if this.nextDate "" "disabled"}}" {{on "click" (fn @onDateSelected this.nextDate)}}>
       <i class="bi-chevron-right text-secondary"></i>
     </button>
     

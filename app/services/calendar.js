@@ -1,6 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
-import CalendarData from 'back-office-calendar/utils/timeslot-stub';
+import TimeslotData from 'back-office-calendar/utils/timeslot-stub';
 
 
 export default class Calendar extends Service{
@@ -13,7 +13,7 @@ export default class Calendar extends Service{
   async getAllTimeSlots(){
 
     await this.requestSvc.fetch("calendarEndpoint");
-    this.parseAllTimeSlots(CalendarData);
+    this.parseAllTimeSlots(TimeslotData);
   }
 
 
