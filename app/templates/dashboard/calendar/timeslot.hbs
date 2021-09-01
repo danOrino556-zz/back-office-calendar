@@ -1,14 +1,16 @@
 {{page-title "Timeslot"}}
 
-<div class="row">
-  <div class="col">
-    <button type="button" class="btn" {{on "click" this.onBack}}>
-      {{t "dashboard.done"}}
-    </button>
-  </div>
+<div class="content-section">
+  <TimeslotHeader
+    @model={{@model.timeslot}}
+    @onDelete={{fn this.onDelete @model.timeslot}}
+    @onBack={{fn this.onBack @model.timeslot}}
+    @onSave={{fn this.onSave @model.timeslot}}
+  />
 </div>
 
-<TimeslotForm
-  @model={{@model.timeslot}}
->
-</TimeslotForm>
+<div class="content-section">
+  <TimeslotForm
+    @model={{@model.timeslot}}
+  />
+</div>

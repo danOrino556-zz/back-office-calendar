@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 
 
 export default class CalendarTimeSlot extends Component {
@@ -16,6 +17,19 @@ export default class CalendarTimeSlot extends Component {
   }
 
 
+  get timeslotAndConflicts(){
+
+    const timeslots = this.args.timeslots;
+
+    return timeslots.filter((timeslot)=>{
+
+      const occursDuringOrBeforeStart = timeslot.startTime <= this.args.model.endTime;
+      const occursDuringOrBeforeEnd = timeslot.endTime >= this.args.model.startTime;
+      return occursDuringOrBeforeStart && occursDuringOrBeforeEnd;
+    });
+  }
+
+
   getDateReference(date, hoursAndMinutes){
 
     const dateReference = new Date(date);
@@ -23,5 +37,14 @@ export default class CalendarTimeSlot extends Component {
     dateReference.setHours(hoursAndMinutesValues.objectAt(0))
     dateReference.setMinutes(hoursAndMinutesValues.objectAt(1));
     return dateReference;
+  }
+
+
+  getTimeslotStyle(timeslot, timeslotConflicts){
+
+    const width = 100 / (timeslotConflicts.length );
+    const timeslotIndex = timeslotConflicts.indexOf(timeslot);
+    const leftOffset = width * timeslotIndex;
+    return htmlSafe("width : " + width + "% !important; left : " + leftOffset  + "%");
   }
 }
