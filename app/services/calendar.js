@@ -1,7 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
-import TimeslotData from 'calendar-challenge/utils/timeslot-stub';
-import OwnersData from 'calendar-challenge/utils/owners-stub';
+import TimeslotData from 'back-office-calendar/utils/timeslot-stub';
+import OwnersData from 'back-office-calendar/utils/owners-stub';
 
 
 export default class Calendar extends Service{
