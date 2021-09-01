@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
-import { isPresent, isEmpty } from '@ember/utils';
-import { action, set } from '@ember/object';
+import { isEmpty } from '@ember/utils';
+import { action} from '@ember/object';
 
 
 export default class Date extends Controller {

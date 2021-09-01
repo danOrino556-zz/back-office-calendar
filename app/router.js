@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'back-office-calendar/config/environment';
+import config from 'calendar-challenge/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;

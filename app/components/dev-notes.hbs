@@ -1,0 +1,36 @@
+<div class="alert alert-primary" role="alert">
+
+  <div class="row align-items-center">
+    <div class="col">
+      <i class="bi-info-circle mr-2"></i>
+      <span class="bolder">
+        {{@notes.length}}
+      </span>
+      {{t "dashboard.devNotes"}}
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-link" {{on "click" this.onToggleNotes}}>
+        {{#if this.showNotes}}
+          {{t "dashboard.hideDetails"}}
+        {{else}}
+          {{t "dashboard.showDetails"}}
+        {{/if}}
+      </button>
+    </div>
+  </div>
+</div>
+
+{{#if this.showNotes}}
+
+  <ul class="list-group">
+    {{#each @notes as |note index|}}
+      
+      <li class="list-group-item pt-1 pb-1">
+        {{inc index}}.
+        {{note}}
+      </li>
+      
+    {{/each}}
+  </ul>
+
+{{/if}}

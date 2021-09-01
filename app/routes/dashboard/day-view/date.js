@@ -18,6 +18,7 @@ export default class Date extends Route{
       "2021-08-30" : {
         titleKey : "dashboard.awesomePupsTitle",
         descriptionKey : "dashboard.awesomePupsDescription",
+        descriptionFootnote : "dashboard.awesomePupsFootnote",
         image : ""
       }
     }

@@ -1,7 +1,7 @@
 {{page-title "Dashboard"}}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary text-white" href="#">
+  <a class="navbar-brand bg-primary text-white">
     <i class="bi-calendar2-day mr-2"></i>
     {{t "dashboard.calendar"}}
   </a>
@@ -28,21 +28,17 @@
     </ul>
 
     <ul class="navbar-nav text-right">
-      <li class="nav-item">
-        <button type="button" class="btn btn-link">
-          <i class="bi-question"></i>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="btn btn-link">
-          <i class="bi-gear"></i>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="btn btn-link">
-          <i class="bi-person"></i>
-        </button>
-      </li>
+
+      {{#each (array "bi-question" "bi-gear" "bi-person") as |icon|}}
+        
+        <li class="nav-item">
+          <button type="button" class="btn btn-link">
+            <i class={{icon}}></i>
+          </button>
+        </li>
+
+      {{/each}}
+
     </ul>
   </div>
 </nav>
