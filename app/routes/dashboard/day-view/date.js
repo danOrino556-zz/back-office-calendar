@@ -22,11 +22,22 @@ export default class Date extends Route{
       }
     }
 
+    const timeslotsForDate = allTimeSlots.filterBy("date", params.date);
+    const allOwnerIds = [];
+    const allOwnerValues = timeslotsForDate.mapBy("owners");
+    allOwnerValues.forEach((owners)=>{
+      allOwnerIds.addObjects(owners || []);
+    });
+    const allUniqueOwnerIds = allOwnerIds.sort().uniq();
+    const selectedOwnerIds = allUniqueOwnerIds.map((id)=>{return id;})
+
     return {
       date : params.date,
       allCalendarDates  : sortedCalendarDates,
-      timeslots : allTimeSlots.filterBy("date", params.date),
-      dateMetadata : dateMetadata[params.date]
+      timeslots : timeslotsForDate,
+      dateMetadata : dateMetadata[params.date],
+      availableOwnerIds : allUniqueOwnerIds,
+      selectedOwnerIds : selectedOwnerIds
     };
   }
 }

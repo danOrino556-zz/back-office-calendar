@@ -2,7 +2,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand bg-primary text-white" href="#">
-    <i class="bi-calendar2-day"></i>
+    <i class="bi-calendar2-day mr-2"></i>
+    {{t "dashboard.calendar"}}
   </a>
   <button
     class="navbar-toggler"
@@ -17,16 +18,30 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      {{!--Nav links would go here as the application grows--}}
+
+      {{!-- <li class="nav-item">
         <LinkTo @route="dashboard.day-view" class="">
           {{t "dashboard.dayView"}}
         </LinkTo>
-      </li>
+      </li> --}}
     </ul>
 
     <ul class="navbar-nav text-right">
       <li class="nav-item">
-        
+        <button type="button" class="btn btn-link">
+          <i class="bi-question"></i>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link">
+          <i class="bi-gear"></i>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link">
+          <i class="bi-person"></i>
+        </button>
       </li>
     </ul>
   </div>

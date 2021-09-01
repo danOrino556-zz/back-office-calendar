@@ -1,6 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import TimeslotData from 'back-office-calendar/utils/timeslot-stub';
+import OwnersData from 'back-office-calendar/utils/owners-stub';
 
 
 export default class Calendar extends Service{
@@ -10,16 +11,31 @@ export default class Calendar extends Service{
   @service store;
 
 
-  async getAllTimeSlots(){
+  async getAllOwners(){
 
-    await this.requestSvc.fetch("calendarEndpoint");
-    this.parseAllTimeSlots(TimeslotData);
+    //await this.requestSvc.fetch("ownersEndpoint");
+
+    const existingOwnerRecords = this.store.peekAll("owner");
+
+    OwnersData.forEach((owner)=>{
+
+      const matchingRecord = existingOwnerRecords.findBy("id", owner.id);
+
+      if(isPresent(matchingRecord)){
+        matchingRecord.setProperties(owner, i);
+      }
+      else{
+        this.store.createRecord("owner", owner);
+      }
+    })
   }
 
 
-  parseAllTimeSlots(calendarData = []){
+  async getAllTimeSlots(){
 
-    calendarData.forEach((singleDayTimeslots=[], dayIndex)=>{
+    //await this.requestSvc.fetch("calendarEndpoint");
+
+    TimeslotData.forEach((singleDayTimeslots=[], dayIndex)=>{
 
       const existingTimeslotRecords = this.store.peekAll("timeslot");
 

@@ -18,10 +18,39 @@
 
 {{/if}}
 
+{{#if @model.availableOwnerIds}}
+
+  <div class="content-section">
+
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <i class="bi-filter-circle text-primary"></i>
+        {{t "dashboard.filter"}} :
+      </div>
+      <div class="col pl-0">
+        <InputOwners
+          @availableOwnerIds={{@model.availableOwnerIds}}
+          @selectedOwnerIds={{@model.selectedOwnerIds}}
+          @onOwnerSelected={{this.onOwnerSelected}}
+        />
+      </div>
+    </div>
+  </div> 
+
+{{/if}}
+
 <div class="content-section">
   <CalendarTimeslotList
     @date={{@model.date}}
-    @timeslots={{@model.timeslots}}
+    @timeslots={{filter 
+      (fn 
+        this.filterTimeslotsByOwner 
+        @model.availableOwnerIds 
+        @model.selectedOwnerIds
+      ) 
+      @model.timeslots
+    }}
+    @selectedOwnerIds={{@model.selectedOwnerIds}}
     @onTimeslotSelected={{this.onTimeslotSelected}}
   />
 </div>

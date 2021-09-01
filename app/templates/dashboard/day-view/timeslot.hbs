@@ -9,6 +9,16 @@
   />
 </div>
 
+<div class="alert alert-secondary border-left rounded-0" role="alert">
+  <div class="font-weight-bold">
+    {{date @model.timeslot.date}}
+  </div>
+
+  <div class="font-weight-bolder">
+    {{@model.timeslot.startTime}} - {{@model.timeslot.endTime}}
+  </div>
+</div>
+
 <div class="content-section">
   <TimeslotForm
     @model={{@model.timeslot}}

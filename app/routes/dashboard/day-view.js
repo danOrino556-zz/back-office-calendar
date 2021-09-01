@@ -12,9 +12,10 @@ export default class DayView extends Route{
 
     try{
       await this.calendarSvc.getAllTimeSlots();
+      await this.calendarSvc.getAllOwners();
     }
     catch{
-      console.log("there was a problem retrieving timeslot data")
+      console.log("there was a problem retrieving timeslot/owner data")
     }
   }
 
@@ -31,7 +32,7 @@ export default class DayView extends Route{
   }
 
 
-  redirect(model, transition){
+  afterModel(model, transition){
 
     const targetName = transition.targetName;
 

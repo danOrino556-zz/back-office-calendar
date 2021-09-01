@@ -1,0 +1,15 @@
+{{#each @availableOwnerIds as |ownerId|}}
+
+  <button type="button" class="btn {{if (includes ownerId @selectedOwnerIds) "btn-primary" "btn-light"}}" {{on "click" (fn @onOwnerSelected ownerId)}}>
+
+    <OwnerInfo
+      @ownerId={{ownerId}}
+      as |owner|
+    >
+      <i class="bi-github mr-2"></i>
+      {{owner.name}}
+    </OwnerInfo>
+  
+  </button>
+  
+{{/each}}

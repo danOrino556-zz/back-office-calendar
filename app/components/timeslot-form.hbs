@@ -1,14 +1,31 @@
-<form class="content-section">
+<form>
 
-  <h6>
-    {{@model.date}}
-  </h6>
+  {{#if @model.owners}}
 
-  <h6>
-    {{@model.startTime}} - {{@model.endTime}}
-  </h6>
+    <div class="form-group">
+      <label for="owners">
+        {{t "dashboard.timeslot.owners"}}
+      </label>
 
-  <hr>
+      <div>
+        {{#each @model.owners as |ownerId|}}
+
+          <button type="button" class="btn btn-primary">
+
+            <OwnerInfo
+              @ownerId={{ownerId}}
+              as |owner|
+            >
+              {{owner.name}}
+            </OwnerInfo>
+          
+          </button>
+
+        {{/each}}
+      </div>
+    </div>
+    
+  {{/if}}
 
   <div class="form-group">
     <label for="activityName">

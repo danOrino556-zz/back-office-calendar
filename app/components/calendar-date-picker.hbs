@@ -1,22 +1,18 @@
-<h3>
-  {{t "dashboard.availableDates" num=@allDates.length}}
-</h3>
-
-<div class="row">
-
-  <div class="col">
-
+<div class="row align-items-center">
+  <div class="col-auto">
     <button type="button" class="btn btn-primary {{if this.previousDate "" "disabled"}}" {{on "click" (fn @onDateSelected this.previousDate)}}>
       <i class="bi-chevron-left"></i>
     </button>
 
     <button type="button" class="btn btn-outline-primary" {{on "click" (fn @onDateSelected @selectedDate)}}>
-      {{@selectedDate}}
+      {{date @selectedDate}}
     </button>
 
     <button type="button" class="btn btn-primary {{if this.nextDate "" "disabled"}}" {{on "click" (fn @onDateSelected this.nextDate)}}>
       <i class="bi-chevron-right text-secondary"></i>
     </button>
-    
+  </div>
+  <div class="col pl-0">
+    {{t "dashboard.availableDates" num=@allDates.length}}
   </div>
 </div>

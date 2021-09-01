@@ -9,7 +9,6 @@ export default class Timeslot extends Controller {
   onBack(model){
     
     //model.rollbackAttributes();
-    console.log("transitioning")
     this.transitionToRoute("dashboard.day-view.date", model.date);
   }
 

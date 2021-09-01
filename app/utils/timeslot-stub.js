@@ -86,7 +86,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
     {
       "date": "2021-08-30",
@@ -96,7 +96,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1, 2, 3],
+      "owners": ["1", "2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -106,7 +106,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [2, 3],
+      "owners": ["2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -116,7 +116,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
     {
       "date": "2021-08-30",
@@ -126,7 +126,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
     {
       "date": "2021-08-30",
@@ -136,7 +136,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1, 2, 3],
+      "owners": ["1", "2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -146,7 +146,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1, 2, 3],
+      "owners": ["1", "2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -156,7 +156,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1, 2, 3],
+      "owners": ["1", "2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -166,7 +166,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1, 2, 3],
+      "owners": ["1", "2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -176,7 +176,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
     {
       "date": "2021-08-30",
@@ -186,7 +186,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [2, 3],
+      "owners": ["2", "3"],
     },
     {
       "date": "2021-08-30",
@@ -196,7 +196,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
     {
       "date": "2021-08-30",
@@ -206,7 +206,7 @@ export default [
       "availableSpots": 5,
       "bookedCount": 1,
       "maxGuests": 5,
-      "owners": [1],
+      "owners": ["1"],
     },
   ]
 ];
