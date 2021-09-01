@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <h3>
+      {{@model.activityName}}
+      <button type="button" class="btn btn-danger" {{on "click" @onDelete}}>
+        <i class="bi-trash"></i>
+      </button>
+    </h3>
+  </div>
+  <div class="col-auto">
+    <button type="button" class="btn btn-secondary" {{on "click" @onBack}}>
+      <i class="bi-x"></i>
+      {{t "dashboard.cancel"}}
+    </button>
+    <button type="button" class="btn btn-primary" {{on "click" @onSave}}>
+      <i class="bi-check"></i>
+      {{t "dashboard.save"}}
+    </button>
+  </div>
+</div>

@@ -1,16 +1,21 @@
+<h3>
+  {{t "dashboard.availableDates" num=@allDates.length}}
+</h3>
+
 <div class="row">
+
   <div class="col">
 
-    <button type="button" class="btn btn-light {{if (eq @selectedDate @allDates.firstObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.firstObject)}}>
-      <div class="bi-arrow-left-short text-secondary"></div>
+    <button type="button" class="btn btn-primary {{if (eq @selectedDate @allDates.firstObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.firstObject)}}>
+      <i class="bi-chevron-left"></i>
     </button>
 
-    <button type="button" class="btn btn-outline-secondary" {{on "click" (fn @onDateSelected @selectedDate)}}>
+    <button type="button" class="btn btn-outline-primary" {{on "click" (fn @onDateSelected @selectedDate)}}>
       {{@selectedDate}}
     </button>
 
-    <button type="button" class="btn btn-light {{if (eq @selectedDate @allDates.lastObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.lastObject)}}>
-      <i class="bi-arrow-right-short text-secondary"></i>
+    <button type="button" class="btn btn-primary {{if (eq @selectedDate @allDates.lastObject) "disabled"}}" {{on "click" (fn @onDateSelected @allDates.lastObject)}}>
+      <i class="bi-chevron-right text-secondary"></i>
     </button>
     
   </div>

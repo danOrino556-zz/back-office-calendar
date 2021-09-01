@@ -1,11 +1,10 @@
-<button type="button" class="timeslot-event-container" {{on "click" @onClick}}>
+<button type="button" class="timeslot-event-container" style={{compute (fn this.getTimeslotStyle @model this.timeslotAndConflicts)}} {{on "click" @onClick}}>
 
   <div class="activity-title">
     {{@model.activityName}}
   </div>
-  
 
-  {{#each (range 0 this.numberOfThirtyBlocks) as |thirtyMinuteBlock|}}
+  {{#each (range 0 this.numberOfThirtyBlocks)}}
     <div class="thirty-minute-block"> </div>
   {{/each}}
   

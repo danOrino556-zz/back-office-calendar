@@ -1,18 +1,25 @@
 {{page-title "Dashboard"}}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand bg-primary" href="#">
-    Icon
+  <a class="navbar-brand bg-primary text-white" href="#">
+    <i class="bi-calendar2-day"></i>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <LinkTo @route="dashboard.calendar" class="text-dark">
-          {{t "dashboard.calendar"}}
+        <LinkTo @route="dashboard.calendar" class="">
+          {{t "dashboard.dayView"}}
         </LinkTo>
       </li>
     </ul>

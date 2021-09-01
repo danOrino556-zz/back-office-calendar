@@ -1,13 +1,13 @@
 
 <div class="calendar-day-container">
 
-  <div class="h4">
+  <div class="h3">
     {{t "dashboard.numberOfEvents" num= @timeslots.length}}
   </div>
 
   {{#each (range 0 24) as |hour|}}
 
-    <div class="row">
+    <div class="row hour-container">
 
       <div class="col-auto text-center">
         <div class="calendar-time-title">
@@ -15,7 +15,7 @@
         </div>
       </div>
       
-      <div class="col">
+      <div class="col p-0">
 
         <div class="hour-block">
 
@@ -23,7 +23,7 @@
 
           {{#each (array "00" "30") as |thirtyMinuteIncrement|}}
 
-            <div class="thirty-minute-block">
+            <div class="thirty-minute-block background-block">
 
               {{#with
                 (filter-by "startTime" (concat hour ":" thirtyMinuteIncrement) @timeslots)
@@ -34,6 +34,7 @@
 
                   <CalendarTimeSlot
                     @model={{timeslot}}
+                    @timeslots={{@timeslots}}
                     @onClick={{fn @onTimeslotSelected timeslot}}
                   />
                   
