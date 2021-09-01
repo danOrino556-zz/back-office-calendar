@@ -4,7 +4,7 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'calendar-challenge',
     environment,
-    rootURL: '/',
+    rootURL: '/calendar-challenge/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
