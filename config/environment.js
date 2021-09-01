@@ -2,9 +2,9 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'calendar-challenge',
+    modulePrefix: 'back-office-calendar',
     environment,
-    rootURL: '/calendar-challenge/',
+    rootURL: '/back-office-calendar/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
