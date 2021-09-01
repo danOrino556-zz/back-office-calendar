@@ -9,7 +9,7 @@ export default class Timeslot extends Controller {
   onBack(model){
     
     //model.rollbackAttributes();
-    this.transitionToRoute("dashboard.calendar");
+    this.transitionToRoute("dashboard.day-view.date", model.date);
   }
 
 
@@ -17,7 +17,7 @@ export default class Timeslot extends Controller {
   async onDelete(model){
 
     //await model.destroyRecord();
-    this.transitionToRoute("dashboard.calendar");
+    this.transitionToRoute("dashboard.day-view.date", model.date);
   }
 
 
@@ -25,6 +25,6 @@ export default class Timeslot extends Controller {
   async onSave(model){
 
     //await model.save();
-    this.transitionToRoute("dashboard.calendar");
+    this.transitionToRoute("dashboard.day-view.date", model.date);
   }
 }

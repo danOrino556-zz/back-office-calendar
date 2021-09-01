@@ -1,5 +1,5 @@
-import Application from 'back-office-calendar/app';
-import config from 'back-office-calendar/config/environment';
+import Application from 'calendar-challenge/app';
+import config from 'calendar-challenge/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

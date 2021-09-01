@@ -1,3 +1,11 @@
+
+
+.calendar-description-container{
+
+  background-color: $grey-color;
+  padding : 25px;
+}
+
 .calendar-day-container{
 
   .calendar-time-title{
@@ -27,6 +35,12 @@
 
   .thirty-minute-block.background-block{
     background-color : $grey-color;
+    transition: all 0.2s ease;
+  }
+
+  .thirty-minute-block.background-block:hover{
+    background-color : $grey-color-darker;
+    box-shadow : $shadow-3;
   }
 
   .timeslot-event-container{
@@ -45,13 +59,17 @@
       position: absolute;
       margin-left: 5px;
       font-size : 14px;
+
+      @media screen and (max-width: 767px) {
+        max-width : 75px;
+      }
     }
   }
 
   .timeslot-event-container:hover{
     background-color: $primary-color;
     color : $white-color;
-    transform: scale(1.03, 1.03);
+    transform: scale(1.01, 1.01);
     z-index : 10;
     box-shadow : $shadow-1;
   }

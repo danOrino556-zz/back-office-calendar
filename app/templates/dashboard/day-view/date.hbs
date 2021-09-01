@@ -1,0 +1,85 @@
+{{page-title "Date"}}
+
+<DevNotes
+  @notes={{array
+    "I hope all these of notes are ok and I apologize ahead of time for any typos. My hope is that they help communicate some of my thoughts as I was putting together this project. Its kind of a bucket of random - but hopefully useful"
+    "The sample data that was provided can be found on dates 2 and 3"
+    "All the strings (outside of these dev notes) are going through ember-intl. Im just generally hardwired to not code static strings in templating now"
+    "Next steps for this page would probably be the create event on click functionality. I added hover style on 30 minute increments on the list - but didnt want to go too far down in the weeds with it"
+    "The date is a dynamic segment on this page for filtering timeslots and bookmarking"
+    "I have had a lot of success in the past layering routes. So even if the parent day-view route doesn't have much going on atm - I usually find that wrapper useful as the app grows."
+    "I added the dashboard route on top of this calendar route just to simulate an authenticated environment and to easily have a place for nav elements and whatnot."
+    "I was torn between the datepicker living on day-view or date - there is probably an argument to be made either way."
+    "The github icon was the closest in bootstrap icons to a puppy lol. I thought about adding images - but I didnt want it to distract from the way things were built"
+    "I didnt see a requirement to do 15 minute increments on the timeslots so I just went with 30"
+    "The plotting of the timeslot is interesting. I saw two main approaches. Gridding to get a solid skeleton for start positioning and then absolute position the rest of the way or leaning more heavily on gridding out the slot sections. I chose gridding then handing off to absolute positioning"
+    "I see the overlapping Activity 2's on the second day as a target for optimization. I made sure to have everything running through a common place detecting for collisions so I can easily change it."
+    "I didnt want to spend a lot of time writing grid / boilerplate CSS so I roped in bootstrap"
+    "Youll notice I also used SASS and built a bootstrap theme for peek's teal color. I personally love namespacing css classnames with SASS and building every app with no static colors in CSS - everything just references brand variables"
+    "With more time it would be cool to associate ownership with different colors"
+    "The click to edit a timeslot could be done in a modal too I suppose. Ive worked in apps that slowly turned into a modal'd nightmare though so I tend to avoid modals for most things"
+    "Most of the route templates should do a heavy handoff to components. Ive found that its just easier that way even with easier views. Its quicker to scale that way and the readibility of routes template stays high"
+    "I built the owner-info comp like I did just to communicate that I know how to use the yield blocks to pass in and render different views for different requirements. With more time I would probably build some components using named blocks since that is my favorite new ember feature."
+    "The route hooks in this route are probably an indicator for some of my overall style. I generally do not explicitly add comments since I don't want to maintain them. Instead I try to communicate a lot via clear variable names and whatnot."
+    "Functions throughout the app should be pretty small. Thats pretty important to me"
+    "I added a date helper just to demonstrate that I know how to use them. Im used to having a date library pulled in of some kind"
+    "JS and HTML are written in a style that I am used to. I usually add spaces between elements and different ideas. I also use those spaces to help let me know when whatever I am doing should probably be broken into smaller functions."
+    "I am a big fan of linting and I have included the eslint and template lint rules that I am used to following"
+  }}
+/>
+
+<div class="content-section">
+  <CalendarDatePicker
+    @selectedDate={{@model.date}}
+    @allDates={{@model.allCalendarDates}}
+    @onDateSelected={{this.onDateSelected}}
+  />
+</div>
+
+{{#if @model.dateMetadata}}
+
+  <div class="content-section">
+    <CalendarDayDescription
+      @model={{@model.dateMetadata}}
+    />
+  </div>  
+
+{{/if}}
+
+{{#if @model.availableOwnerIds}}
+
+  <div class="content-section">
+
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <i class="bi-filter-circle text-primary"></i>
+        {{t "dashboard.filter"}} :
+      </div>
+      <div class="col pl-0">
+        <InputOwners
+          @availableOwnerIds={{@model.availableOwnerIds}}
+          @selectedOwnerIds={{@model.selectedOwnerIds}}
+          @onOwnerSelected={{this.onOwnerSelected}}
+        />
+      </div>
+    </div>
+  </div> 
+
+{{/if}}
+
+<div class="content-section">
+  <CalendarTimeslotList
+    @date={{@model.date}}
+    @timeslots={{filter 
+      (fn 
+        this.filterTimeslotsByOwner 
+        @model.availableOwnerIds 
+        @model.selectedOwnerIds
+      ) 
+      @model.timeslots
+    }}
+    @selectedOwnerIds={{@model.selectedOwnerIds}}
+    @onTimeslotSelected={{this.onTimeslotSelected}}
+  />
+</div>
+

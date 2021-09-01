@@ -1,0 +1,40 @@
+{{page-title "Timeslot"}}
+
+<DevNotes
+  @notes={{array
+    "Next steps for this page are model validations. Im used to ember-changeset / ember-changeset-validations but there tons of ways to go about it."
+    "Youll see the controller actions wired up ready to go for saves and rollbacks and deletes and what not to kind of communicate what is next"
+    "A better validation implentation would probably involve the willTransition hooks - since the user could do something like enter an invalid state - then click browser back or something. Main thing I am trying to communicate is that the validation strategy should still work with browser navigation thrown into the mix"
+    "I am really comfortable with component integration tests and I figured this form would be an ideal canidate for an integration test"
+    "Youll notice on the test that I had 5 assertions in a single test. I have just run into a lot of performance issues in the past with large integration test suits that call a render per test"
+    "I built the owner input flexible enough to work for this case and calendar filter case but I ran out of time / have to call it done at some point"
+    "The labels and inputs should all be wired up with for/id fields for screen reader"
+  }}
+/>
+
+<div class="content-section">
+  <TimeslotHeader
+    @model={{@model.timeslot}}
+    @onDelete={{fn this.onDelete @model.timeslot}}
+    @onBack={{fn this.onBack @model.timeslot}}
+    @onSave={{fn this.onSave @model.timeslot}}
+  />
+</div>
+
+<div class="alert alert-secondary border-left rounded-0" role="alert">
+  <div class="font-weight-bold">
+    <i class="bi-calendar mr-2"></i>
+    {{date @model.timeslot.date}}
+  </div>
+
+  <div class="font-weight-bolder">
+    <i class="bi-clock mr-2"></i>
+    {{@model.timeslot.startTime}} - {{@model.timeslot.endTime}}
+  </div>
+</div>
+
+<div class="content-section">
+  <TimeslotForm
+    @model={{@model.timeslot}}
+  />
+</div>

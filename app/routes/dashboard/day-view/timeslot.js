@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { isNone } from '@ember/utils';
 
-
 export default class Timeslot extends Route{
 
 
@@ -19,7 +18,7 @@ export default class Timeslot extends Route{
   afterModel(model){
 
     if(isNone(model.timeslot)){
-      this.transitionTo("dashboard.calendar");
+      this.transitionTo("dashboard.day-view");
     }
   }
 }

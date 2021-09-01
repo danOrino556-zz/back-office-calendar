@@ -1,0 +1,17 @@
+<div class="calendar-day-container">
+
+  <div class="h3">
+    {{t "dashboard.numberOfEvents" num= @timeslots.length}}
+  </div>
+
+  {{#each (range 0 23 true) as |hour|}}
+
+    <CalendarHour
+      @hour={{hour}}
+      @timeslots={{@timeslots}}
+      @onTimeslotSelected={{fn @onTimeslotSelected}}
+    />
+    
+  {{/each}}
+</div>
+
