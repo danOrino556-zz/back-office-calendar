@@ -8,7 +8,7 @@ export default class Dashboard extends Route{
     const targetName = transition.targetName;
 
     if(targetName === 'dashboard.index'){
-      this.transitionTo("dashboard.calendar");
+      this.transitionTo("dashboard.day-view");
     }
   }
 }

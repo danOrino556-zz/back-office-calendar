@@ -1,0 +1,28 @@
+{{page-title "Date"}}
+
+<div class="content-section">
+  <CalendarDatePicker
+    @selectedDate={{@model.date}}
+    @allDates={{@model.allCalendarDates}}
+    @onDateSelected={{this.onDateSelected}}
+  />
+</div>
+
+{{#if @model.dateMetadata}}
+
+  <div class="content-section">
+    <CalendarDayDescription
+      @model={{@model.dateMetadata}}
+    />
+  </div>  
+
+{{/if}}
+
+<div class="content-section">
+  <CalendarTimeslotList
+    @date={{@model.date}}
+    @timeslots={{@model.timeslots}}
+    @onTimeslotSelected={{this.onTimeslotSelected}}
+  />
+</div>
+

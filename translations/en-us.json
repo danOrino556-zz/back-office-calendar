@@ -2,6 +2,8 @@
   "login" : "Login",
   "login.username" : "Username",
   "login.password" : "Password",
+  "dashboard.awesomePupsTitle" : "Best.Pups.Ever.",
+  "dashboard.awesomePupsDescription" : "In addition to the base data set, here is another set of timeslots based around a typical day for my 3 fur babies. I have added some additonal properties to the base timeslot model to accomodate the idea of ownership. That way I could visualize a basic shared calendar experience.",
   "dashboard.calendar" : "Calendar Challenge",
   "dashboard.dayView" : "Day View",
   "dashboard.done" : "Done",

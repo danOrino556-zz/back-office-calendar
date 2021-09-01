@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { action, set } from '@ember/object';
 
 
-export default class Index extends Controller {
+export default class Date extends Controller {
   
 
   @action
@@ -13,12 +13,12 @@ export default class Index extends Controller {
       return;
     }
 
-    set(this.model, "selectedDate", date);
+    this.transitionToRoute("dashboard.day-view.date", date);
   }
-
+  
 
   @action
   onTimeslotSelected(timeslot){
-    this.transitionToRoute("dashboard.calendar.timeslot", timeslot.id);
+    this.transitionToRoute("dashboard.day-view.timeslot", timeslot.id);
   }
 }

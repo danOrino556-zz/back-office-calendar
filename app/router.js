@@ -11,8 +11,9 @@ Router.map(function () {
 
   this.route('dashboard', {path: 'dashboard/'}, function() {
 
-    this.route('calendar', {path: 'calendar/'}, function() {
+    this.route('day-view', {path: 'day/'}, function() {
       this.route('timeslot', {path: '/:timeslot_id'});
+      this.route('date', {path: '/:date'});
     });
   });
 });
