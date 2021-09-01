@@ -8,6 +8,14 @@ export default class DayView extends Route{
   @service('calendar') calendarSvc;
 
 
+  /**
+   * Dan : 
+   *  - I put these here only since they arent actually asyncronous yet. 
+   *  - Any even remotely slow asyncronous code I usually move down to the component layers and 
+   *    manage via ember-concurrency
+   *  - If I had to have this here and it was slow you could always add a loading template for the route
+   *    but thats kinda old IMO
+   */
   async beforeModel(){
 
     try{

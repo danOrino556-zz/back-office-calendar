@@ -7,14 +7,14 @@ export default class CalendarTimeSlot extends Component {
 
   get startDate(){
 
-    const {date, startTime } = this.args.model
+    const {date, startTime} = this.args.model
     return this.getDateReference(date, startTime);
   }
 
 
   get endDate(){
 
-    const {date, endTime } = this.args.model
+    const {date, endTime} = this.args.model
     return this.getDateReference(date, endTime);
   }
 

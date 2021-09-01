@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { isNone } from '@ember/utils';
 
-
 export default class Timeslot extends Route{
 
 

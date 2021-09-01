@@ -11,10 +11,10 @@ export default class Calendar extends Service{
   @service store;
 
 
+  //Dan : I usually break these kinds of methods into separate call/parse methods once a fetch is in the equation
   async getAllOwners(){
 
     //await this.requestSvc.fetch("ownersEndpoint");
-
     const existingOwnerRecords = this.store.peekAll("owner");
 
     OwnersData.forEach((owner)=>{
@@ -34,10 +34,9 @@ export default class Calendar extends Service{
   async getAllTimeSlots(){
 
     //await this.requestSvc.fetch("calendarEndpoint");
+    const existingTimeslotRecords = this.store.peekAll("timeslot");
 
     TimeslotData.forEach((singleDayTimeslots=[], dayIndex)=>{
-
-      const existingTimeslotRecords = this.store.peekAll("timeslot");
 
       singleDayTimeslots.forEach((timeslot, timeslotIndex)=>{
 

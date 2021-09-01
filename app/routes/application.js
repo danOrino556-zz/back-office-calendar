@@ -11,8 +11,8 @@ export default class Application extends Route {
 
   beforModel(){
 
-    //Dan : I usually put high level app code that applies to the entire app tree in one of these hooks 
-    this.intl.setLocale("en");
+    //Dan : I usually put high level app code that applies to the entire app tree in one of these hooks
+    //example - this.intl.setLocale("en-us");
   }
 
 
